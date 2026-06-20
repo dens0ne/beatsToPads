@@ -39,14 +39,20 @@
       <span class="row-value big" id="out-beats">4<span>beats</span></span>
     </div>
 
-    <div class="row yellow" id="row-remove" title="Trim this many samples from the end to land exactly on the beat grid">
+    <div class="row yellow" id="row-remove">
       <span class="row-label">Remove from end</span>
-      <span class="row-value" id="out-remove">0<span>samples</span></span>
+      <div class="row-right">
+        <span class="row-value" id="out-remove">0<span>samples</span></span>
+        <button class="apply-btn" id="btn-remove">Apply</button>
+      </div>
     </div>
 
-    <div class="row yellow" id="row-add" title="Extend by this many samples to include one more full beat">
+    <div class="row yellow" id="row-add">
       <span class="row-label">Add to end</span>
-      <span class="row-value" id="out-add">0<span>samples</span></span>
+      <div class="row-right">
+        <span class="row-value" id="out-add">0<span>samples</span></span>
+        <button class="apply-btn" id="btn-add">Apply</button>
+      </div>
     </div>
 
   </div>

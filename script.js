@@ -2,6 +2,19 @@ const $ = id => document.getElementById(id);
 
 ['start', 'end', 'bpm'].forEach(id => $(id).addEventListener('input', calc));
 
+$('btn-remove').addEventListener('click', () => {
+  $('end').value = parseFloat($('end').value) - currentRemainder;
+  calc();
+});
+
+$('btn-add').addEventListener('click', () => {
+  $('end').value = parseFloat($('end').value) + currentToNextBeat;
+  calc();
+});
+
+let currentRemainder   = 0;
+let currentToNextBeat  = 0;
+
 function calc() {
   const start = parseFloat($('start').value);
   const end   = parseFloat($('end').value);
@@ -21,6 +34,9 @@ function calc() {
   const completeBeats  = Math.floor(exactBeats);
   const remainder      = Math.round(duration - completeBeats * samplesPerBeat);
   const toNextBeat     = Math.round(samplesPerBeat - remainder);
+
+  currentRemainder  = remainder;
+  currentToNextBeat = toNextBeat;
 
   $('out-beats').innerHTML = `${completeBeats}<span>beats</span>`;
 
