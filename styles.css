@@ -1,0 +1,123 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #111;
+  --surface: #1c1c1c;
+  --border: #2e2e2e;
+  --accent: #e8453c;
+  --green: #3cbe6e;
+  --yellow: #d4a837;
+  --text: #e0e0e0;
+  --muted: #666;
+  --font: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  gap: 1.5rem;
+}
+
+h1 {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.inputs .full { grid-column: 1 / -1; }
+
+.field label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.field input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+  padding: 0.55rem 0.7rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.field input:focus { border-color: #555; }
+
+.field .hint {
+  font-size: 0.62rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  background: var(--bg);
+  border-left: 3px solid var(--border);
+}
+
+.row.green  { border-left-color: var(--green); }
+.row.yellow { border-left-color: var(--yellow); }
+.row.red    { border-left-color: var(--accent); }
+
+.row-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.row-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.row-value.big { font-size: 2rem; color: var(--green); }
+.row-value span { font-size: 0.65rem; color: var(--muted); margin-left: 0.25rem; font-weight: 400; }
+
+.error {
+  color: var(--accent);
+  font-size: 0.75rem;
+  text-align: center;
+  min-height: 1rem;
+}
